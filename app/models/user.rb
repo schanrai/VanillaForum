@@ -1,2 +1,8 @@
 class User < ApplicationRecord
+  has_secure_password
+  has_many :posts
+  has_many :topics, through: :posts
+  has_many :upvotes
+
+  
 end
