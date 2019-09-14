@@ -1,4 +1,6 @@
 Rails.application.routes.draw do
+
+  root 'topics#welcome'
   #resources :upvotes
   #resources :posts
   resources :topics
