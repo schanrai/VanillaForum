@@ -1,5 +1,7 @@
 # README
 
+-Users up to user_id 7 all have same password of 'password1'
+
 This README would normally document whatever steps are necessary to get the
 application up and running.
 
