@@ -1,6 +1,10 @@
 Rails.application.routes.draw do
 
-  root 'topics#welcome'
+  root 'session#welcome'
+  get '/signup' => 'users#new'
+  get '/login' => 'sessions#new'
+  post '/login' => 'sessions#create'
+  delete '/logout' => 'sessions#destroy'
   #resources :upvotes
   #resources :posts
   resources :topics
