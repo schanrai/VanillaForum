@@ -7,11 +7,6 @@
 
 <%= form_for @user, :url  => "/login" do |f| %>
 
-    <ul>
-    <% @user.errors.full_messages.each do |msg| %>
-      <li><%= msg %></li>
-    <% end %>
-    </ul>
 
   <%= f.label :email %><br>
   <%= f.email_field :email %><br>
