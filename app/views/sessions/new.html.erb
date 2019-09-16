@@ -1,11 +1,20 @@
 <h1>Log In</h1>
 
-<%= flash[:error] %>
+<div class="">
+  <%= flash[:error] %>
+</div>
 
-<%= form_for :user, url: '/login' do |f| %>
+
+<%= form_for @user, :url  => "/login" do |f| %>
+
+    <ul>
+    <% @user.errors.full_messages.each do |msg| %>
+      <li><%= msg %></li>
+    <% end %>
+    </ul>
 
   <%= f.label :email %><br>
-  <%= f.text_field :email %><br>
+  <%= f.email_field :email %><br>
 
   <%= f.label :password %><br>
   <%= f.password_field :password %><br>

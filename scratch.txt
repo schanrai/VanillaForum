@@ -25,3 +25,9 @@ edit_user GET    /users/:id/edit(.:format)                                      
          <li><%= link_to("#{topic.title}, topic_path(topic)) %></li>
          <% end %>
        </ul>
+
+
+
+       <div class="">
+         <%= flash[:error] %>
+       </div>

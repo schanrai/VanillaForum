@@ -8,6 +8,7 @@ class SessionsController < ApplicationController
 
 
   def new
+    @user = User.new
   end
 
   def create
@@ -16,12 +17,17 @@ class SessionsController < ApplicationController
       session[:user_id] = @user.id
       redirect_to user_path(@user)
     else
-      render :new
+      flash[:error] = "Sorry, your username or password was incorrect"
+      redirect_to '/login'
+      #you must use redirect_to because if the user email has been found but no password provided
+      #then @user is still populated when you render again..and form_for will think patch request.
+      #even if you overwrite this with method = "/post" in form_for code it will still through think
+      #it's an edit because @user is populated
     end
   end
 
   def destroy
-    session.delete(:user_id)
+    session.clear
     #current_user = nil
     redirect_to '/'
   end
