@@ -1,0 +1,16 @@
+<h2><%= @topic.title  %></h2>
+
+<% @topic.posts.each do |post| %>
+<div>
+  <%= post.user.username %><br>
+  <%= post.body %><br>
+  <%= post.updated_at %><br>
+  <%= post.upvotes.count %>
+
+
+  <br><br>
+</div>
+<% end %>
+
+
+#add link to create post here

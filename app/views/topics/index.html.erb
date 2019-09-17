@@ -1,0 +1,12 @@
+<h2>All Topics</h2>
+
+<div class="">
+
+<ul>
+  <% @topics.each do |topic| %>
+  <li><%= link_to("#{topic.title}", topic_path(topic.id)) %></li>
+
+  <% end %>
+</ul>
+
+</div>

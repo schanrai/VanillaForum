@@ -2,7 +2,7 @@ class SessionsController < ApplicationController
 
 
   def welcome
-    @topics = Topic.all
+    @topics = Topic.last(5)
     @users = User.all
   end
 

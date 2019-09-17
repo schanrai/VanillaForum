@@ -6,8 +6,10 @@ class ApplicationController < ActionController::Base
     end
 
     def require_login
-      flash[:error] = "You must be logged in to do that"
-      redirect_to login_path if !session[:user_id]
+      if !session[:user_id]
+        flash[:error] = "You must be logged in to do that"
+        redirect_to login_path
+      end
     end
 
 
@@ -15,6 +17,8 @@ class ApplicationController < ActionController::Base
       @current_user ||= User.find(session[:user_id])
       #saves you a db call if you already have a value in @current_user
     end
+
+  
 
 
 

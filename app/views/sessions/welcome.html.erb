@@ -10,15 +10,18 @@ OR
 
 <%= link_to "Sign In Through Facebook", '/auth/facebook' %>
 
-<div class="">
+<div>
 
 
 #scope on this topics div for five latest
+<h3>Latest Topics</h3>
 <ul>
   <% @topics.each do |topic| %>
   <li><%= link_to("#{topic.title}", topic_path(topic.id)) %></li>
 
   <% end %>
 </ul>
+
+<%= link_to "View All Topics", topics_path %>
 
 </div>
