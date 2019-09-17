@@ -1,5 +1,6 @@
 class UsersController < ApplicationController
 
+
   def new
     #binding.pry
     if logged_out?
@@ -22,6 +23,10 @@ class UsersController < ApplicationController
   end
 
 
+  def show
+    require_login
+    @user = User.find(params[:id])
+  end
 
 
   private
@@ -29,6 +34,8 @@ class UsersController < ApplicationController
   def user_params
     params.require(:user).permit(:username, :password, :email, :uid)
   end
+
+
 
 
 
