@@ -11,13 +11,24 @@
 
 
   <body>
+    <!-- navbar -->
+      <div class="container">
+        <div class="navbar-header">
+
+        <a class="navbar-brand" href="<%= root_url %>">Home</a>
+        <a class="navbar-brand" href="<%= signup_path %>">Sign up</a>
+        <a class="navbar-brand" href="<%= login_path %>">Log in</a>
+        <%# <%= render 'sessions/login_items' %>
+        </div>
+
+      </div>
 
     <!-- content -->
-    <div class="container"  role="main">
-      <% if flash[:notice] %>
-        <div class="notice"><%= flash[:notice] %></div>
-      <% end %>
-      
+      <div class="container"  role="main">
+        <% if flash[:error] %>
+          <div class="error"><%= flash[:error] %></div>
+        <% end %>
+
     <%= yield %>
   </body>
 </html>

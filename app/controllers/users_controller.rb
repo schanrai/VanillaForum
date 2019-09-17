@@ -1,7 +1,13 @@
 class UsersController < ApplicationController
 
   def new
-    @user = User.new
+    #binding.pry
+    if logged_out?
+      @user = User.new
+    else
+      flash[:error] = "You are already logged in"
+      redirect_to user_path(session[:user_id])
+    end
   end
 
 

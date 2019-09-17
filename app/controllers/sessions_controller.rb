@@ -8,7 +8,7 @@ class SessionsController < ApplicationController
 
 
   def new
-    @user = User.new
+      @user = User.new
   end
 
   def create
@@ -17,7 +17,7 @@ class SessionsController < ApplicationController
       session[:user_id] = @user.id
       redirect_to user_path(@user)
     else
-      flash[:error] = "Sorry, your username or password was incorrect"
+      flash[:error] = "Please check your email or password again"
       redirect_to '/login'
       #you must use redirect_to because if the user email has been found but no password provided
       #then @user is still populated when you render again..and form_for will think patch request.
