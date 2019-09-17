@@ -41,6 +41,7 @@ gem 'omniauth-facebook'
 gem 'dotenv-rails'
 gem 'pry'
 gem 'faker'
+gem 'thin', '~> 1.7'
 
 group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console
