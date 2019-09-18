@@ -3,40 +3,45 @@
 
 
 Prefix Verb   URI Pattern                                                                              Controller#Action
+   root GET    /                                                                                        sessions#welcome
+ signup GET    /signup(.:format)                                                                        users#new
+  login GET    /login(.:format)                                                                         sessions#new
 
-  root GET    /                                                                                        sessions#welcome
-signup GET    /signup(.:format)                                                                        users#new
- login GET    /login(.:format)                                                                         sessions#new
-       POST   /login(.:format)                                                                         sessions#create
-logout DELETE /logout(.:format)                                                                        sessions#destroy
-topics GET    /topics(.:format)                                                                        topics#index
-       POST   /topics(.:format)                                                                        topics#create
+        POST   /login(.:format)                                                                         sessions#create
+auth_facebook_callback GET    /auth/facebook/callback(.:format)                                                        sessions#fbcreate
+ logout DELETE /logout(.:format)                                                                        sessions#destroy
+topic_posts POST   /topics/:topic_id/posts(.:format)                                                        posts#create
+new_topic_post GET    /topics/:topic_id/posts/new(.:format)                                                    posts#new
+edit_topic_post GET    /topics/:topic_id/posts/:id/edit(.:format)                                               posts#edit
+ topics GET    /topics(.:format)                                                                        topics#index
+        POST   /topics(.:format)                                                                        topics#create
 new_topic GET    /topics/new(.:format)                                                                    topics#new
 edit_topic GET    /topics/:id/edit(.:format)                                                               topics#edit
- topic GET    /topics/:id(.:format)                                                                    topics#show
-       PATCH  /topics/:id(.:format)                                                                    topics#update
-       PUT    /topics/:id(.:format)                                                                    topics#update
-       DELETE /topics/:id(.:format)                                                                    topics#destroy
- users GET    /users(.:format)                                                                         users#index
-       POST   /users(.:format)                                                                         users#create
+  topic GET    /topics/:id(.:format)                                                                    topics#show
+        PATCH  /topics/:id(.:format)                                                                    topics#update
+        PUT    /topics/:id(.:format)                                                                    topics#update
+        DELETE /topics/:id(.:format)                                                                    topics#destroy
+  users GET    /users(.:format)                                                                         users#index
+        POST   /users(.:format)                                                                         users#create
 new_user GET    /users/new(.:format)                                                                     users#new
 edit_user GET    /users/:id/edit(.:format)                                                                users#edit
-  user GET    /users/:id(.:format)                                                                     users#show
-       PATCH  /users/:id(.:format)                                                                     users#update
-       PUT    /users/:id(.:format)                                                                     users#update
-       DELETE /users/:id(.:format)                                                                     users#destroy
+   user GET    /users/:id(.:format)                                                                     users#show
+        PATCH  /users/:id(.:format)                                                                     users#update
+        PUT    /users/:id(.:format)                                                                     users#update
+        DELETE /users/:id(.:format)                                                                     users#destroy
 
 
+, url: topic_posts_path(@topic), method: :post
+
+        <%= form_for @post do |f| %>
 
 
-       <ul>
-         <% @topics.each do |topic| %>
-         <li><%= link_to("#{topic.title}, topic_path(topic)) %></li>
-         <% end %>
-       </ul>
+          <%= f.label :body %>
+          <%= f.text_area :body, placeholder: "create your post here", rows: 10, class: "form-control" %>
 
 
+          <br><br>
 
-       <div class="">
-         <%= flash[:error] %>
-       </div>
+          <%= f.submit %>
+
+        <% end %>

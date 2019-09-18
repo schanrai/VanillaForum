@@ -12,12 +12,25 @@ OR
 
 <div>
 
-
-#scope on this topics div for five latest
-<h3>Latest Topics</h3>
+<h3>Latest Threads</h3>
 <ul>
   <% @topics.each do |topic| %>
   <li><%= link_to("#{topic.title}", topic_path(topic.id)) %></li>
+
+  <% end %>
+</ul>
+
+<%= link_to "View All Threads", topics_path %>
+
+</div>
+
+
+<div>
+
+<h3>Latest Signup</h3>
+<ul>
+  <% @users.each do |user| %>
+  <li><%= link_to("#{user.username}", user_path(user.id)) %></li>
 
   <% end %>
 </ul>

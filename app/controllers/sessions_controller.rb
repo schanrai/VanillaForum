@@ -3,7 +3,7 @@ class SessionsController < ApplicationController
 
   def welcome
     @topics = Topic.last(5)
-    @users = User.all
+    @users = User.last(5)
   end
 
 

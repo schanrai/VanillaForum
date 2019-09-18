@@ -1,0 +1,17 @@
+
+<h2><%= @topic.title %></h2>
+
+<%= render partial: 'layouts/errors', locals: {object: @post} %>
+
+<%= form_for @post, url: topic_posts_path(@topic), method: :post do |f| %>
+
+
+  <%= f.label :body %><br>
+  <%= f.text_area :body, placeholder: "create your post here", rows: 10, class: "form-control" %>
+
+
+  <br><br>
+
+  <%= f.submit 'Submit Post'%>
+
+<% end %>
