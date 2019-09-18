@@ -1,0 +1,6 @@
+
+<% @posts.each do |post| %>
+<ul>
+  <li><%= post.body %> - <%= post.topic.title %></li>
+</ul>
+<% end %>

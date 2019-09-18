@@ -45,3 +45,7 @@ edit_user GET    /users/:id/edit(.:format)                                      
           <%= f.submit %>
 
         <% end %>
+
+
+
+<%= form_for @post, url: topic_posts_path(@topic), method: :post do |f| %>

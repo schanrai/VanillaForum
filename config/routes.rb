@@ -12,8 +12,11 @@ Rails.application.routes.draw do
     resources :posts, only: [:new, :create, :edit]
   end
 
-  resources :users
+  resources :users do
+    resources :posts, only: [:index]
+  end
   #except edit and delete
-  
+
+
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
 end
