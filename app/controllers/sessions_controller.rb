@@ -42,7 +42,6 @@ class SessionsController < ApplicationController
 
   def destroy
     session.clear
-    #current_user = nil
     redirect_to '/'
   end
 

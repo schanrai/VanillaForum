@@ -51,21 +51,7 @@ edit_user GET    /users/:id/edit(.:format)                                      
 <%= form_for @post, url: topic_posts_path(@topic), method: :post do |f| %>
 
 
+  <a class="navbar-brand" href="/login" >Log In</a>
 
 
-
-<h2><%= @topic.title  %></h2>
-
-<% @topic.posts.most_upvoted.each do |post_id, upvotes| %>
-
-<div>
-  <%  @post = Post.find(post_id) %>
-  <%= @post.user.username %><br>
-  <%= @post.body %><br>
-  <%= @post.updated_at %><br>
-  <%= @post.upvotes %>
-
-<br><br>
-
-</div>
-<% end %>
+        <a class="navbar-brand" href="<%= login_path %>">Log in</a>
