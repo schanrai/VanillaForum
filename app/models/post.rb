@@ -6,4 +6,5 @@ class Post < ApplicationRecord
   validates :body, presence: true
   #validates :topic_id, presence: true
 
+  
 end

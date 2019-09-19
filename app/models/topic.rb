@@ -9,4 +9,6 @@ class Topic < ApplicationRecord
   validates_associated :posts
 
 
+
+
 end

@@ -6,6 +6,7 @@ Rails.application.routes.draw do
   post '/login' => 'sessions#create'
   get '/auth/facebook/callback' => 'sessions#fbcreate'
   delete '/logout' => 'sessions#destroy'
+  get '/most_upvoted' => 'topics#most_upvoted'
   #resources :upvotes
 
   resources :topics do

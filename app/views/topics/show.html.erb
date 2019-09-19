@@ -1,14 +1,16 @@
 <h2><%= @topic.title  %></h2>
 
-<% @topic.posts.each do |post| %>
+<% @topic.posts.order_by_updated.each do |post| %>
+
 <div>
+
   <%= post.user.username %><br>
   <%= post.body %><br>
   <%= post.updated_at %><br>
   <%= post.upvotes.count %>
 
+<br><br>
 
-  <br><br>
 </div>
 <% end %>
 

@@ -1,6 +1,6 @@
-
-<% @posts.each do |post| %>
+<h2><%= @user.username%>'s posts</h2>
+<% @posts.order_by_created.each do |post| %>
 <ul>
-  <li><%= post.body %> - <%= post.topic.title %></li>
+  <li><%= post.body %> - <%= post.topic.title %> - <%= post.created_at %></li>
 </ul>
 <% end %>

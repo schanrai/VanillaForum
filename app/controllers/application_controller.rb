@@ -18,7 +18,8 @@ class ApplicationController < ActionController::Base
       #saves you a db call if you already have a value in @current_user
     end
 
-  
+
+
 
 
 

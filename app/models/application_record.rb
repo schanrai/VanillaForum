@@ -3,7 +3,13 @@ class ApplicationRecord < ActiveRecord::Base
 
   #make those helpers available in the view
 
-  scope :order_by_created, -> {order(:created_at)}
+  scope :order_by_created, -> {order(created_at: :desc)}
 
-  scope :order_by_updated, -> {order(:updated_at)}
+  scope :order_by_updated, -> {order(updated_at: :desc)}
+
+  def self.most_upvoted
+    joins(:upvotes).group("posts.id").count.sort_by{|k, v| v}.reverse.to_h
+  end
+
+
 end

@@ -6,7 +6,10 @@ class TopicsController < ApplicationController
   end
 
   def show
-    
+  end
+
+  def most_upvoted
+    @topics = Topic.all
   end
 
 
