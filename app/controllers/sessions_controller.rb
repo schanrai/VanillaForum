@@ -4,6 +4,7 @@ class SessionsController < ApplicationController
   def welcome
     @topics = Topic.last(5)
     @users = User.last(5)
+    @posts = Post.order_by_updated.limit(10).most_upvoted
   end
 
 

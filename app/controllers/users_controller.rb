@@ -2,7 +2,6 @@ class UsersController < ApplicationController
 
 
   def new
-    #binding.pry
     if logged_out?
       @user = User.new
     else

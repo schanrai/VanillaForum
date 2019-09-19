@@ -1,5 +1,5 @@
 class TopicsController < ApplicationController
-  before_action :set_topic, only: [:show, :edit]
+  before_action :set_topic, only: [:show, :edit, :most_upvoted]
 
   def index
     @topics = Topic.all
@@ -9,14 +9,11 @@ class TopicsController < ApplicationController
   end
 
   def most_upvoted
-    @topics = Topic.all
   end
 
 
   private
 
-    #def order_by_upvotes
-    #end
 
     def set_topic
       @topic = Topic.find(params[:id])

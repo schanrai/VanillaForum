@@ -54,7 +54,9 @@ edit_user GET    /users/:id/edit(.:format)                                      
 
 
 
-<% @topic.posts.most_upvotes.each do |post_id, upvotes| %>
+<h2><%= @topic.title  %></h2>
+
+<% @topic.posts.most_upvoted.each do |post_id, upvotes| %>
 
 <div>
   <%  @post = Post.find(post_id) %>

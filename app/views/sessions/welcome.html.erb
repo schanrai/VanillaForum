@@ -38,3 +38,14 @@ OR
 <%= link_to "View All Topics", topics_path %>
 
 </div>
+
+
+<h3>Popular Posts</h3>
+<ul>
+  <% @posts.each do |post_id, upvotes| %>
+  <%  @post = Post.find(post_id) %>
+  <li><%= @post.body %> - <%= @post.upvotes.count %></li>
+  <%# links to post parent topic? %>
+
+  <% end %>
+</ul>

@@ -1,0 +1,19 @@
+
+<h2><%= @topic.title  %></h2>
+
+<% @topic.posts.most_upvoted.each do |post_id, upvotes| %>
+
+<div>
+  <%  @post = Post.find(post_id) %>
+  <%= @post.user.username %><br>
+  <%= @post.body %><br>
+  <%= @post.updated_at %><br>
+  <%= @post.upvotes %>
+
+<br><br>
+
+</div>
+<% end %>
+
+
+#add link to create post here
