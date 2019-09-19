@@ -1,6 +1,7 @@
 class TopicsController < ApplicationController
   before_action :set_topic, only: [:show, :edit, :most_upvoted]
 
+
   def index
     @topics = Topic.all
   end

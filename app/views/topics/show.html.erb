@@ -1,3 +1,13 @@
+
+
+<% if !!@upvote %>
+<%= render partial: 'layouts/errors', locals: {object: @upvote} %>
+<% else %>
+<%= render partial: 'layouts/errors', locals: {object: @topic} %>
+<% end %>
+
+
+
 <h2><%= @topic.title  %></h2>
 <div class="">
   <% @topic.posts.order_by_updated.each do |post| %>
@@ -14,7 +24,6 @@
   <div class="">
     <%= form_for :upvote, url: upvotes_path,  method: "post" do |u| %>
     <%= u.hidden_field :post_id, :value => @post.id %>
-
     <%= u.submit "Upvote this post"%>
     <% end %>
 
@@ -27,3 +36,7 @@
 <%= link_to_if (!!current_user), "Create Post",new_topic_post_path(@topic) do %>
 <%= link_to "Join the conversation", @signup_path %>
 <% end %>
+
+<br><br>
+
+#url /upvotes is ugly!if user tries to reload?
