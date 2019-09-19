@@ -7,7 +7,6 @@
 <% end %>
 
 
-
 <h2><%= @topic.title  %></h2>
 <div class="">
   <% @topic.posts.order_by_updated.each do |post| %>
@@ -20,14 +19,22 @@
     <%  @post = Post.find_by_id(post)%>
 
   </div>
+  <% if !!current_user %>
+  <div class="">
+    <%= form_for :upvote, url: upvotes_path,  method: "post" do |u| %>
+    <%= u.hidden_field :post_id, :value => @post.id %>
+    <%= u.submit "Upvote this post"%>
+    <% end %>
+  </div>
 
   <div class="">
     <%= form_for :upvote, url: upvotes_path,  method: "post" do |u| %>
     <%= u.hidden_field :post_id, :value => @post.id %>
     <%= u.submit "Upvote this post"%>
     <% end %>
-
   </div>
+  <% end %>
+
   <% end %>
 
 

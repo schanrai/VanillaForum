@@ -9,8 +9,9 @@ Rails.application.routes.draw do
   get 'topics/:id/most_upvoted' => 'topics#most_upvoted'
 
 
+
   resources :topics do
-    resources :posts, only: [:new, :create, :edit]
+    resources :posts, only: [:new, :show, :create, :edit, :update, :delete]
   end
 
   resources :users do

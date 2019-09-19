@@ -1,4 +1,6 @@
 class PostsController < ApplicationController
+  before_action :set_topic, only: [:create, :edit, :show]
+  before_action :set_post, only: [:edit, :show]
 
   def new
     #check if it actually exists, prevents user manupulation
@@ -11,7 +13,6 @@ class PostsController < ApplicationController
 
 
   def create
-    set_topic
     @post = current_user.posts.build(post_params)
     @post.topic_id = params[:topic_id]
     if @post.save
@@ -21,6 +22,11 @@ class PostsController < ApplicationController
       flash[:error] = "Post creation failed. Try again"
       render :new
     end
+  end
+
+
+  def show
+    render 'topics/show'
   end
 
 
@@ -36,6 +42,22 @@ class PostsController < ApplicationController
   end
 
 
+  def edit
+    @post = Post.find_by(id: params[:id])
+  end
+
+
+  def update
+    @post = Post.find_by(id: params[:id])
+    @post.topic_id = params[:topic_id]
+    if @post.update(post_params)
+      redirect_to topic_path(@post.topic_id)
+    else
+      render :edit
+    end
+  end
+
+
 
 private
 
@@ -47,5 +69,8 @@ private
     @topic = Topic.find_by_id(params[:topic_id])
   end
 
+  def set_post
+    @post = Post.find_by(id: params[:id])
+  end
 
 end
