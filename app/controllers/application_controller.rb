@@ -1,5 +1,6 @@
 class ApplicationController < ActionController::Base
 
+helper_method :current_user
 
     def logged_out?
       !session[:user_id]
@@ -14,7 +15,7 @@ class ApplicationController < ActionController::Base
 
 
     def current_user
-      @current_user ||= User.find(session[:user_id])
+      @current_user ||= User.find_by_id(session[:user_id])
       #saves you a db call if you already have a value in @current_user
     end
 

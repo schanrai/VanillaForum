@@ -7,7 +7,7 @@ Rails.application.routes.draw do
   get '/auth/facebook/callback' => 'sessions#fbcreate'
   post '/logout' => 'sessions#destroy'
   get 'topics/:id/most_upvoted' => 'topics#most_upvoted'
-  #resources :upvotes
+
 
   resources :topics do
     resources :posts, only: [:new, :create, :edit]
@@ -18,6 +18,7 @@ Rails.application.routes.draw do
   end
   #except edit and delete
 
+  resources :upvotes, only: [:new, :create]
 
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
 end

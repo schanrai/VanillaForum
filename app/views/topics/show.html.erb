@@ -1,18 +1,29 @@
 <h2><%= @topic.title  %></h2>
+<div class="">
+  <% @topic.posts.order_by_updated.each do |post| %>
 
-<% @topic.posts.order_by_updated.each do |post| %>
+  <div>
+    <%= post.user.username %><br>
+    <%= post.body %><br>
+    <%= post.updated_at %><br>
+    <%= post.upvotes.count %>
+    <%  @post = Post.find_by_id(post)%>
 
-<div>
+  </div>
 
-  <%= post.user.username %><br>
-  <%= post.body %><br>
-  <%= post.updated_at %><br>
-  <%= post.upvotes.count %>
+  <div class="">
+    <%= form_for :upvote, url: upvotes_path,  method: "post" do |u| %>
+    <%= u.hidden_field :post_id, :value => @post.id %>
 
-<br><br>
+    <%= u.submit "Upvote this post"%>
+    <% end %>
+
+  </div>
+  <% end %>
+
 
 </div>
+
+<%= link_to_if (!!current_user), "Create Post",new_topic_post_path(@topic) do %>
+<%= link_to "Join the conversation", @signup_path %>
 <% end %>
-
-
-#add link to create post here
