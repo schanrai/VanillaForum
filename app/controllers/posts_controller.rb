@@ -1,6 +1,6 @@
 class PostsController < ApplicationController
-  before_action :set_topic, only: [:create, :edit, :show]
-  before_action :set_post, only: [:edit, :show]
+  before_action :set_topic, only: [:create, :edit, :show, :destroy]
+  before_action :set_post, only: [:edit, :show, :destroy]
 
   def new
     #check if it actually exists, prevents user manupulation
@@ -57,6 +57,11 @@ class PostsController < ApplicationController
     end
   end
 
+
+  def destroy
+    @post.destroy
+    redirect_to topic_path(@topic)
+  end
 
 
 private

@@ -20,20 +20,21 @@
 
   </div>
   <% if !!current_user %>
+    <div class="">
+      <%= form_for :upvote, url: upvotes_path,  method: "post" do |u| %>
+      <%= u.hidden_field :post_id, :value => @post.id %>
+      <%= u.submit "Upvote this post"%>
+      <% end %>
+    </div>
+  <% end %>
+
+ <% if @post.user == current_user %>
   <div class="">
-    <%= form_for :upvote, url: upvotes_path,  method: "post" do |u| %>
-    <%= u.hidden_field :post_id, :value => @post.id %>
-    <%= u.submit "Upvote this post"%>
+    <%= link_to "Edit Post", edit_topic_post_path(@topic, @post) %>
+    <%= link_to "Delete Post", topic_post_path(@topic, @post), method: :delete  %>
     <% end %>
   </div>
 
-  <div class="">
-    <%= form_for :upvote, url: upvotes_path,  method: "post" do |u| %>
-    <%= u.hidden_field :post_id, :value => @post.id %>
-    <%= u.submit "Upvote this post"%>
-    <% end %>
-  </div>
-  <% end %>
 
   <% end %>
 

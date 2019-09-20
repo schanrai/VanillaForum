@@ -8,10 +8,10 @@ Rails.application.routes.draw do
   post '/logout' => 'sessions#destroy'
   get 'topics/:id/most_upvoted' => 'topics#most_upvoted'
 
-
+  #resources :posts, only: [:delete]
 
   resources :topics do
-    resources :posts, only: [:new, :show, :create, :edit, :update, :delete]
+    resources :posts, only: [:new, :show, :create, :edit, :update, :destroy]
   end
 
   resources :users do
@@ -21,5 +21,5 @@ Rails.application.routes.draw do
 
   resources :upvotes, only: [:new, :create]
 
-  # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
+
 end
