@@ -8,7 +8,7 @@ Rails.application.routes.draw do
   post '/logout' => 'sessions#destroy'
   get 'topics/:id/most_upvoted' => 'topics#most_upvoted'
 
-  #resources :posts, only: [:delete]
+
 
   resources :topics do
     resources :posts, only: [:new, :show, :create, :edit, :update, :destroy]

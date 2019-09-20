@@ -10,3 +10,8 @@
 </ul>
 
 </div>
+
+
+<%= link_to_if (!!current_user), "Create Topic", new_topic_path do %>
+<%= link_to "Join the conversation", @signup_path %>
+<% end %>

@@ -1,0 +1,20 @@
+<h2>New Topic</h2>
+
+<%= form_for (@topic) do | f | %>
+  <div class="">
+    <%= f.label :title %>
+    <%= f.text_field :title %>
+  </div>
+
+<%= f.fields_for :posts do | p | %>
+  <div class="">
+    <%= p.text_area :body, placeholder: "create your post here", rows: 10, class: "form-control"  %>
+  </div>
+<% end %>
+
+
+  <div class="">
+    <%= f.submit  %>
+  </div>
+
+<% end %>

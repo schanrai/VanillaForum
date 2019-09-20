@@ -5,10 +5,7 @@ class Topic < ApplicationRecord
   validates :title, presence: true
   validates :title, length: { maximum: 230,
     too_long: "%{count} characters is the maximum allowed" }
-
   validates_associated :posts
 
-
-
-
+  accepts_nested_attributes_for :posts
 end
