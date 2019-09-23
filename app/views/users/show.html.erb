@@ -2,4 +2,16 @@
 
 <p><%= @user.username%></p>
 
-#link to see all posts by this user
+<div class="">
+  <% @user.posts.order_by_created.each do |post|  %>
+
+</div>
+
+<div class="">
+  <%  @post = Post.find_by_id(post)%>
+  <%= link_to("#{@post.body}", topic_path(@post.topic.id))%><br>
+  <%= post.created_at %><br>
+  <%= post.upvotes.count %>
+
+</div>
+  <% end %>

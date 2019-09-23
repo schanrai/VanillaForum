@@ -15,9 +15,9 @@ class TopicsController < ApplicationController
   def create
     @topic = current_user.topics.new(topic_params)
     @topic.posts.first.user_id = current_user.id
-    flash[:error] = "Post created sucessfully"
+    flash[:error] = "Topic created sucessfully"
       if @topic.save
-        flash[:error] = "Post creation failed. Try again"
+        flash[:error] = "Topic creation failed. Try again"
         redirect_to topic_path(@topic)
       else
         render :new
@@ -28,7 +28,9 @@ class TopicsController < ApplicationController
   def show
   end
 
+
   def most_upvoted
+
   end
 
 
@@ -36,7 +38,7 @@ class TopicsController < ApplicationController
 
 
     def set_topic
-      @topic = Topic.find(params[:id])
+      @topic = Topic.find_by_id(params[:id])
     end
 
     def topic_params
