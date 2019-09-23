@@ -1,17 +1,6 @@
 <h1>Welcome to the Vanilla forum!</h1>
-
-<%=  link_to "Sign up", signup_path %>
-
-OR
-
-<%= link_to "Log in", login_path %>
-
-OR
-
-<%= link_to "Sign In Through Facebook", '/auth/facebook' %>
-
-<div>
-
+<div class="">
+  
 <h3>Latest Threads</h3>
 <ul>
   <% @topics.each do |topic| %>

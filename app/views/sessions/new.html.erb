@@ -1,5 +1,6 @@
 <h1>Log In</h1>
 
+<%= render partial: 'layouts/errors', locals: {object: @user} %>
 
 <%= form_for @user, :url  => "/login" do |f| %>
 
@@ -11,5 +12,7 @@
   <%= f.password_field :password %><br>
 
   <%= f.submit "Log In" %>
+
+  <%= link_to('Or Sign In Through Facebook!', '/auth/facebook') %>
 
 <% end %>

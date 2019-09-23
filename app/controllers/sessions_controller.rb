@@ -9,7 +9,12 @@ class SessionsController < ApplicationController
 
 
   def new
+    if logged_out?
       @user = User.new
+    else
+      flash[:error] = "You are already logged in"
+      redirect_to user_path(session[:user_id])
+    end
   end
 
   def create
