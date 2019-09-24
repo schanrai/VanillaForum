@@ -73,3 +73,7 @@ Editview
             <%= link_to "My Posts", user_posts_path(current_user), class: "dropdown-item" %>
           </div>
         </li>
+
+
+        <% if user.posts.exists? %>
+        <%= link_to " See posts by this user", user_posts_path(user) %>
