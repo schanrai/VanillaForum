@@ -1,17 +1,18 @@
 <h2>All Threads</h2>
 
-<div class="">
+<div>
 
-<ul>
-  <% @topics.each do |topic| %>
-  <li><%= link_to("#{topic.title}", topic_path(topic.id)) %></li>
 
+  <div>
+    <% @topics.each do |topic| %>
+    <%= link_to("#{topic.title}", topic_path(topic.id)) %>
+  </div>
+  <div>
+    <%= topic.posts.count %> posts
+  </div>
+    <% end %>
+
+  <%= link_to_if (!!current_user), "Create Topic", new_topic_path do %>
+  <%= link_to "Join the conversation", @signup_path %>
   <% end %>
-</ul>
-
 </div>
-
-
-<%= link_to_if (!!current_user), "Create Topic", new_topic_path do %>
-<%= link_to "Join the conversation", @signup_path %>
-<% end %>
