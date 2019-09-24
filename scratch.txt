@@ -71,8 +71,13 @@ Editview
           <div class="dropdown-menu">
             <%= link_to "My Profile", user_path(current_user), class: "dropdown-item"  %>
             <%= link_to "My Posts", user_posts_path(current_user), class: "dropdown-item" %>
+
+
           </div>
         </li>
+
+
+        $primary: rgb(168,82,198);
 
 
         <% if user.posts.exists? %>
