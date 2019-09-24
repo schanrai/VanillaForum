@@ -1,7 +1,10 @@
-<% if !session[:user_id] %>
-
-<%= link_to "Log In", login_path, class: "navbar-brand" %>
-<% else %>
-<%= link_to "Log Out", logout_path, :method => :post, class: "navbar-brand" %>
-<!-- pay attention to syntax above, this is how you apply a css style to a link_to helper -->
-<% end %>
+  <% if !session[:user_id] %>
+  <li class="nav-item">
+    <%= link_to "Log In", login_path, class: "nav-link" %>
+  </li>
+  <% else %>
+  <li class="nav-item">
+    <%= link_to "Log Out", logout_path, :method => :post, class: "nav-link" %>
+  </li>
+    <!-- pay attention to syntax above, this is how you apply a css style to a link_to helper -->
+  <% end %>

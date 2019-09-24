@@ -56,3 +56,20 @@ Editview
         <%= render partial: 'layouts/errors', locals: {object: @post} %>
 
         <%= render 'form' %>
+
+
+        <a class="nav-link dropdown-toggle" href="#" id="navbardrop" data-toggle="dropdown">
+          User Profile
+        </a>
+
+
+
+
+        <!-- Dropdown -->
+        <li class="nav-item dropdown-toggle" id="navbardrop" data-toggle="dropdown">
+          Users
+          <div class="dropdown-menu">
+            <%= link_to "My Profile", user_path(current_user), class: "dropdown-item"  %>
+            <%= link_to "My Posts", user_posts_path(current_user), class: "dropdown-item" %>
+          </div>
+        </li>

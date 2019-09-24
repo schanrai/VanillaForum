@@ -1,40 +1,55 @@
-<h1>Welcome to the Vanilla forum!</h1>
-<div class="">
-  
-<h3>Latest Threads</h3>
-<ul>
-  <% @topics.each do |topic| %>
-  <li><%= link_to("#{topic.title}", topic_path(topic.id)) %></li>
 
-  <% end %>
-</ul>
 
-<%= link_to "View All Threads", topics_path %>
+  <div class="jumbotron text-center">
+    <h1>Welcome to the Vanilla forum!</h1>
+  </div>
 
+
+<div class="container">
+
+  <div class="row">
+
+    <div class = "col-sm-8">
+
+      <h3>Latest Threads</h3>
+      <ul>
+        <% @topics.each do |topic| %>
+        <li><%= link_to("#{topic.title}", topic_path(topic.id)) %></li>
+
+        <% end %>
+      </ul>
+
+      <%= link_to "View All Threads", topics_path %>
+
+    </div>
+
+
+    <div class = "col-sm-4">
+
+      <h3>Latest Signups</h3>
+      <ul>
+        <% @users.each do |user| %>
+        <li><%= link_to("#{user.username}", user_path(user.id)) %></li>
+
+        <% end %>
+      </ul>
+
+      <%= link_to "View All Users", users_path %>
+
+    </div>
+
+  </div>
+
+  <div class="row mt-5">
+    <div class = "col-sm">
+      <h3>Popular Posts</h3>
+      <ul>
+        <% @posts.each do |post_id, upvotes| %>
+        <%  @post = Post.find(post_id) %>
+        <li><%= @post.body %> - <%= @post.upvotes.count %></li>
+        <%# links to post parent topic? %>
+        <% end %>
+      </ul>
+    </div>
+  </div>
 </div>
-
-
-<div>
-
-<h3>Latest Signup</h3>
-<ul>
-  <% @users.each do |user| %>
-  <li><%= link_to("#{user.username}", user_path(user.id)) %></li>
-
-  <% end %>
-</ul>
-
-<%= link_to "View All Topics", topics_path %>
-
-</div>
-
-
-<h3>Popular Posts</h3>
-<ul>
-  <% @posts.each do |post_id, upvotes| %>
-  <%  @post = Post.find(post_id) %>
-  <li><%= @post.body %> - <%= @post.upvotes.count %></li>
-  <%# links to post parent topic? %>
-
-  <% end %>
-</ul>
