@@ -63,18 +63,5 @@ Editview
         </a>
 
 
-
-
-        <!-- Dropdown -->
-        <li class="nav-item dropdown-toggle" id="navbardrop" data-toggle="dropdown">
-          Users
-          <div class="dropdown-menu">
-            <%= link_to "My Profile", user_path(current_user), class: "dropdown-item"  %>
-            <%= link_to "My Posts", user_posts_path(current_user), class: "dropdown-item" %>
-
-
-          </div>
-        </li>
-
-        <a class="dropdown-item" href="#">My profile</a>
-        <a class="dropdown-item" href="#">My posts</a>
+Popular posts -welcome page
+<p><%= @post.body %></p>

@@ -1,19 +1,22 @@
 <h2>All Threads</h2>
 
 <div class="row">
-
   <% @topics.each do |topic| %>
   <div class="col-sm-8" >
     <h5 ><%= link_to("#{topic.title}", topic_path(topic.id), class: "text-dark") %></h5>
-    
+
+    <p class="text-muted"><%= topic.posts.last %></p>
   </div>
 
   <div class="col-sm-4">
-    <h5 ><%= topic.posts.count %> posts</h5>
+    <h4 class = "text-muted"><%= topic.posts.count %> posts</h4>
   </div>
-    <% end %>
+  <% end %>
 </div>
-  <%= link_to_if (!!current_user), "Create Topic", new_topic_path do %>
+<!--Create Topic CTA -->
+
+  <%= link_to_if (!!current_user), "Create Topic", new_topic_path, class: "btn btn-outline-primary  btn-circle" do %>
   <%= link_to "Join the conversation", @signup_path %>
   <% end %>
+
 <!--add color on post counts-->

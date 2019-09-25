@@ -7,7 +7,7 @@
 
 <div class="container">
 
-  <div class="row">
+  <div class="row mb-5">
 
     <div class = "col-sm-8">
 
@@ -18,8 +18,8 @@
             <%= link_to("#{topic.title}", topic_path(topic.id)) %>
           </div>
         <% end %>
-        <br>
-      <%= link_to "View All Threads", topics_path %>
+
+      <%= link_to "View All Threads", topics_path, class: "btn btn-outline-danger btn-circle mt-2" %>
 
     </div>
 
@@ -29,27 +29,31 @@
       <h3>Latest Signups</h3>
 
         <% @users.each do |user| %>
-          <div class="">
+          <div>
             <%= link_to("#{user.username}", user_path(user.id)) %>
           </div>
         <% end %>
-      <br>
-      <%= link_to "View All Users", users_path %>
+
+      <%= link_to "View All Users", users_path, class:"btn btn-outline-danger btn-circle mt-2" %>
 
     </div>
 
   </div>
 
-  <div class="row mt-5">
-    <div class = "col-sm">
+  <div class="row mb-3">
+    <div class = "col-sm-8 ">
+
       <h3>Popular Posts</h3>
-      <ul>
         <% @posts.each do |post_id, upvotes| %>
-        <%  @post = Post.find(post_id) %>
-        <li><%= @post.body %> - <%= @post.upvotes.count %></li>
-        <%# links to post parent topic? %>
+          <%  @post = Post.find(post_id) %>
+        <div>
+        <p><%= link_to("#{@post.body}", topic_path(@post.topic_id))%> (<%="#{@post.upvotes.count}"%> upvotes) </p>
         <% end %>
-      </ul>
+        </div>
+      <%= link_to "Create new post", new_topic_path, class: "btn btn-outline-danger btn-circle mt-2" %>
     </div>
+
   </div>
-</div>
+
+
+ </div>
