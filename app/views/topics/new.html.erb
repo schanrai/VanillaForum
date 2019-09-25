@@ -1,20 +1,26 @@
-<h2>New Topic</h2>
+<%= render partial: 'layouts/errors', locals: {object: @topic} %>
 
-<%= form_for (@topic) do | f | %>
-  <div class="">
-    <%= f.label :title %>
-    <%= f.text_field :title %>
+<div class="row">
+  <div class="col-sm-8">
+
+    <h2>New Topic</h2>
+    <%= form_for (@topic) do | f | %>
+      <div class="">
+        <%= f.label :title %>
+        <%= f.text_field :title, class: "form-control"  %>
+      </div>
+
+      <div class="">
+        <%= f.fields_for :posts do | p | %>
+        <%= p.label :body %>
+        <%= p.text_area :body, placeholder: "Create your post here", rows: 10, class: "form-control"  %>
+        <% end %>
+      </div>
+
+      <div >
+        <%= f.submit:Submit, class: "btn btn-primary"  %>
+      </div>
+
+    <% end %>
   </div>
-
-<%= f.fields_for :posts do | p | %>
-  <div class="">
-    <%= p.text_area :body, placeholder: "create your post here", rows: 10, class: "form-control"  %>
-  </div>
-<% end %>
-
-
-  <div >
-    <%= f.submit:Submit, class: "btn btn-primary"  %>
-  </div>
-
-<% end %>
+</div>
