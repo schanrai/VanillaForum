@@ -4,6 +4,8 @@ git_source(:github) { |repo| "https://github.com/#{repo}.git" }
 
 # bootstrap
 gem 'bootstrap', '~> 4.3', '>= 4.3.1'
+#jquery
+gem 'jquery-rails'
 #bootstrap dependency
 gem 'autoprefixer-rails', '~> 9.6', '>= 9.6.1.1'
 #bootstrap dependency

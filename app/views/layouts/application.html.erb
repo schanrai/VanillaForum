@@ -29,14 +29,20 @@
             <li class="nav-item">
               <a class="nav-link" href="<%= signup_path %>">Sign up</a>
             </li>
-              <%= render 'sessions/login_items' %>
-              <li class="dropdown nav-item">
-                <a href="#" class="dropdown-toggle nav-link" data-toggle="dropdown">User<span class="caret"></span></a>
-                <ul class="dropdown-menu" role="menu">
-                      <li class="nav-link"><a href="#">All Users</a></li>
-                      <li class="nav-link"><a href="#">Another action</a></li>
-                    </ul>
-              </li>
+            <%= render 'sessions/login_items' %>
+
+            <!-- Dropdown Nav -->
+          <% if !!current_user %>
+            <li class="nav-item dropdown">
+              <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                User
+              </a>
+              <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+                <%= link_to "My Profile", user_path(current_user), class: "dropdown-item"  %>
+                <%= link_to "My Posts", user_posts_path(current_user), class: "dropdown-item" %>
+              </div>
+            </li>
+          <% end %>
           </ul>
         </div>
       </div>

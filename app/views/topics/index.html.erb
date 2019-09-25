@@ -1,18 +1,19 @@
 <h2>All Threads</h2>
 
-<div>
+<div class="row">
 
-
-  <div>
-    <% @topics.each do |topic| %>
-    <%= link_to("#{topic.title}", topic_path(topic.id)) %>
+  <% @topics.each do |topic| %>
+  <div class="col-sm-8" >
+    <h5 ><%= link_to("#{topic.title}", topic_path(topic.id), class: "text-dark") %></h5>
+    
   </div>
-  <div>
-    <%= topic.posts.count %> posts
+
+  <div class="col-sm-4">
+    <h5 ><%= topic.posts.count %> posts</h5>
   </div>
     <% end %>
-
+</div>
   <%= link_to_if (!!current_user), "Create Topic", new_topic_path do %>
   <%= link_to "Join the conversation", @signup_path %>
   <% end %>
-</div>
+<!--add color on post counts-->

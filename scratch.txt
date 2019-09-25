@@ -76,9 +76,5 @@ Editview
           </div>
         </li>
 
-
-        $primary: rgb(168,82,198);
-
-
-        <% if user.posts.exists? %>
-        <%= link_to " See posts by this user", user_posts_path(user) %>
+        <a class="dropdown-item" href="#">My profile</a>
+        <a class="dropdown-item" href="#">My posts</a>
