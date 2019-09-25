@@ -4,23 +4,26 @@
   <div class="col-sm-8">
 
     <h2>New Topic</h2>
-    <%= form_for (@topic) do | f | %>
-      <div class="">
-        <%= f.label :title %>
-        <%= f.text_field :title, class: "form-control"  %>
-      </div>
+    <div>
+      <%= form_for (@topic) do | f | %>
 
-      <div class="">
-        <%= f.fields_for :posts do | p | %>
-        <%= p.label :body %>
-        <%= p.text_area :body, placeholder: "Create your post here", rows: 10, class: "form-control"  %>
-        <% end %>
-      </div>
+        <div class="form-group">
+          <%= f.label :title, class:"form-control-label"  %>
+          <%= f.text_field :title, placeholder: "Create your topic title here", class: "form-control"  %>
+        </div>
 
-      <div >
-        <%= f.submit:Submit, class: "btn btn-primary"  %>
-      </div>
+        <div class="form-group">
+          <%= f.fields_for :posts do | p | %>
+          <%= p.label :body, class:"form-control-label"  %>
+          <%= p.text_area :body, placeholder: "Create your post here", rows: 10, class: "form-control"  %>
+          <% end %>
+        </div>
 
-    <% end %>
+        <div >
+          <%= f.submit:"Create Post", class: "btn btn-primary btn-circle"  %>
+        </div>
+
+      <% end %>
+    </div>
   </div>
 </div>

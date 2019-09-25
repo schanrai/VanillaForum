@@ -1,58 +1,34 @@
-<div class="row justify-content-center">
-<div class="col-md-8 col-lg-6">
-<div class="card shadow zindex-100">
-<div class="card-body px-md-5 py-5">
-<div class="text-center mb-5">
-<h6 class="h3">Create your free account</h6>
-<p class="text-muted mb-0">Made by developers for developers</p>
-</div>
-<span class="clearfix"></span>
-<form class="new_user" id="new_user" action="/users" accept-charset="UTF-8" method="post"><input name="utf8" type="hidden" value="✓"><input type="hidden" name="authenticity_token" value="o0OwkOBQaKWEcKpRWS89tzPGzFN5dZMGsb2e/0cn1p94c6yj6lFn4NrX9PcqJcVBcPhNGEqlV/R8BQCwlYg95Q==">
-<div class="form-group">
-<label class="form-control-label">Full name</label>
-<div class="input-group input-group-transparent">
-<div class="input-group-prepend">
-<span class="input-group-text"><i class="fas fa-user"></i></span>
-</div>
-<input required="required" autofocus="autofocus" placeholder="Your name" class="form-control" type="text" name="user[name]" id="user_name">
-</div>
-</div>
-<div class="form-group">
-<label class="form-control-label">Email address</label>
-<div class="input-group input-group-transparent">
-<div class="input-group-prepend">
-<span class="input-group-text"><i class="fas fa-envelope"></i></span>
-</div>
-<input required="required" placeholder="name@example.com" class="form-control" type="email" name="user[email]" id="user_email">
-</div>
-</div>
-<div class="form-group mb-4">
-<label class="form-control-label" for="user_password">Password</label>
-<div class="input-group input-group-transparent">
-<div class="input-group-prepend">
-<span class="input-group-text"><i class="fas fa-key"></i></span>
-</div>
-<input required="required" autocomplete="off" placeholder="********" class="form-control" type="password" name="user[password]" id="user_password">
-
-</div>
-</div>
-<div class="my-4">
-
-<p class="text-sm">By registering, you agree to the <a target="blank" href="/privacy">privacy policy</a> and <a target="blank" href="/terms">terms of service</a>.</p>
-</div>
-<div class="row align-items-center">
-<div class="col-sm-7">
-<div class="username_1569428620"><style media="screen">.username_1569428620 {position:absolute!important;top:-9999px;left:-9999px;}</style><label for="username">If you are a human, ignore this field</label><input type="text" name="username" id="username" autocomplete="off" tabindex="-1"></div>
-<button name="button" type="submit" class="btn btn-primary mb-3 mb-sm-0" data-disable-with="<i class=&quot;fas fa-spinner-third fa-spin&quot;></i> Creating...">Create account</button>
-</div>
-<div class="col-sm-5 text-sm-right">
-<span class="small d-sm-block d-md-inline">Already registered?</span>
-<a class="small font-weight-bold" href="/users/sign_in">Sign in</a>
-</div>
-</div>
-<a class="btn btn-sm btn-block btn-secondary mt-4" href="/users/auth/github"><i class="fab fa-github mr-2"></i> Sign up with GitHub</a>
-</form>
-</div>
-</div>
-</div>
-</div>
+Prefix Verb   URI Pattern                                                                              Controller#Action
+    root GET    /                                                                                        sessions#welcome
+  signup GET    /signup(.:format)                                                                        users#new
+   login GET    /login(.:format)                                                                         sessions#new
+         POST   /login(.:format)                                                                         sessions#create
+auth_facebook_callback GET    /auth/facebook/callback(.:format)                                           sessions#fbcreate
+  logout POST   /logout(.:format)                                                                        sessions#destroy
+most_upvoted GET    /topics/:id/most_upvoted(.:format)                                                    topics#most_upvoted
+topic_posts POST   /topics/:topic_id/posts(.:format)                                                      posts#create
+new_topic_post GET    /topics/:topic_id/posts/new(.:format)                                               posts#new
+edit_topic_post GET    /topics/:topic_id/posts/:id/edit(.:format)                                         posts#edit
+topic_post GET    /topics/:topic_id/posts/:id(.:format)                                                  posts#show
+         PATCH  /topics/:topic_id/posts/:id(.:format)                                                    posts#update
+         PUT    /topics/:topic_id/posts/:id(.:format)                                                    posts#update
+         DELETE /topics/:topic_id/posts/:id(.:format)                                                    posts#destroy
+  topics GET    /topics(.:format)                                                                        topics#index
+         POST   /topics(.:format)                                                                        topics#create
+new_topic GET    /topics/new(.:format)                                                                    topics#new
+edit_topic GET    /topics/:id/edit(.:format)                                                               topics#edit
+   topic GET    /topics/:id(.:format)                                                                    topics#show
+         PATCH  /topics/:id(.:format)                                                                    topics#update
+         PUT    /topics/:id(.:format)                                                                    topics#update
+         DELETE /topics/:id(.:format)                                                                    topics#destroy
+user_posts GET    /users/:user_id/posts(.:format)                                                          posts#index
+   users GET    /users(.:format)                                                                         users#index
+         POST   /users(.:format)                                                                         users#create
+new_user GET    /users/new(.:format)                                                                     users#new
+edit_user GET    /users/:id/edit(.:format)                                                                users#edit
+    user GET    /users/:id(.:format)                                                                     users#show
+         PATCH  /users/:id(.:format)                                                                     users#update
+         PUT    /users/:id(.:format)                                                                     users#update
+         DELETE /users/:id(.:format)                                                                     users#destroy
+ upvotes POST   /upvotes(.:format)                                                                       upvotes#create
+new_upvote GET    /upvotes/new(.:format)                                                                   upvotes#new

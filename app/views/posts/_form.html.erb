@@ -1,11 +1,17 @@
-<%= form_for ([@topic, @post]) do |f | %>
+<div class="row">
+  <div class="col-sm-8">
+    <h2><%= @topic.title %></h2>
+      <div>
+        <%= form_for ([@topic, @post]) do |f | %>
+        <div class="form-group">
+          <%= f.label :body, class:"form-control-label"   %><br>
+          <%= f.text_area :body, placeholder: "Create your post here", rows: 10, class: "form-control" %>
+        </div>
 
-  <%= f.label :body %><br>
-  <%= f.text_area :body, placeholder: "create your post here", rows: 10, class: "form-control" %>
-
-
-  <br><br>
-
-  <%= f.submit 'Submit Post'%>
-
-<% end %>
+        <div class="">
+          <%= f.submit:"Submit Post", class: "btn btn-primary btn-circle"%>
+        </div>
+        <% end %>
+      </div>
+  </div>
+</div>

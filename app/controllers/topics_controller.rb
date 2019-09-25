@@ -7,17 +7,22 @@ class TopicsController < ApplicationController
   end
 
   def new
-    @topic = Topic.new
-    @topic.posts.new
+    if current_user
+      @topic = Topic.new
+      @topic.posts.new
+    else
+      flash[:error] = "You must be logged in to do that."
+      redirect_to '/login'
+    end
   end
 
 
   def create
     @topic = current_user.topics.new(topic_params)
     @topic.posts.first.user_id = current_user.id
-    flash[:error] = "Topic created sucessfully"
+    flash[:error] = "Topic creation failed. Try again"
       if @topic.save
-        flash[:error] = "Topic creation failed. Try again"
+        flash[:error] = "Topic created sucessfully"
         redirect_to topic_path(@topic)
       else
         render :new
