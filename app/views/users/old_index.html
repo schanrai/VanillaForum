@@ -1,0 +1,11 @@
+<h2>Vanilla Users</h2>
+
+  <% @users.each do |user|%>
+    <div class="mb-4">
+      <p><%= user.username %></p>
+      <% if user.posts.exists? %>
+      <%= link_to " See posts by this user", user_posts_path(user) %>
+      <% end %>
+    </div>
+
+  <% end %>

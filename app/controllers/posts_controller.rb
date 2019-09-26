@@ -34,7 +34,7 @@ class PostsController < ApplicationController
     require_login
     @user = User.find_by_id(params[:user_id])
     if @user.posts.exists?
-      @posts = @user.posts
+      #@posts = @user.posts
     else
       flash[:error] = "#{@user.username}has not posted as yet"
       redirect_to user_path(@user)

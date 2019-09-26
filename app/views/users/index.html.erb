@@ -1,11 +1,32 @@
-<h2>Vanilla Users</h2>
+<div class="row">
+  <div class="col">
+    <h2>Vanilla Users</h2>
+    <hr>
+  </div> <!-- end col -->
+</div> <!-- end row -->
 
-  <% @users.each do |user|%>
-    <div class="mb-4">
-      <p><%= user.username %></p>
-      <% if user.posts.exists? %>
-      <%= link_to " See posts by this user", user_posts_path(user) %>
-      <% end %>
-    </div>
 
-  <% end %>
+<div class="row">
+  <div class="col-sm-9">
+    <% @users.each do |user|%>
+      <div class="row">
+        <div class="col"><strong><%= user.username %></strong></div>
+      </div> <!-- end row -->
+
+
+      <div class="row">
+        <div class="col">
+          <!-- See Posts button -->
+            <div class="mt-2">
+              <% if user.posts.exists? %>
+              <%= link_to "See User's Posts", user_posts_path(user), class: "btn btn-outline-primary btn-circle" %>
+              <% end %>
+            </div>
+        </div> <!-- end col -->
+      </div><!-- end row -->
+
+
+      <hr>
+    <% end %><!-- iteration ends-->
+  </div> <!-- end col-sm-9 -->
+</div> <!-- end row -->

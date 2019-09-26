@@ -9,6 +9,10 @@ class ApplicationRecord < ActiveRecord::Base
 
   scope :oldest, -> { order(:created_at).first }
 
+  def self.most_recent
+    order("created_at DESC").limit(1)
+  end
+
   def self.most_upvoted
     joins(:upvotes).group("posts.id").count.sort_by{|k, v| v}.reverse.to_h
   end
