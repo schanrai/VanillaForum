@@ -11,7 +11,6 @@ class UpvotesController < ApplicationController
     else
       @topic = @post.topic
       flash[:error] = @upvote.errors.full_messages.join" "
-      #render "topics/show"
       redirect_to topic_path(@post.topic)
     end
   end
