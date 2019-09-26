@@ -1,13 +1,31 @@
-<h2><%= @user.username%>'s posts</h2>
+<div class="row">
+  <div class="col">
+  <h2><%= @user.username%>'s posts</h2>
+    <hr>
+  </div><!-- end col -->
+</div><!-- end row -->
 
-  <% @user.posts.order_by_created.each do |post| %>
+
+<div class="row">
+  <div class="col-sm-9">
+    <%  @user.posts.order_by_created.each do |post| %>
+
+    <div class="row stats-bar">
+      <div class="col mt-0">
+        <span class="text-muted mr-2">
+          <i class="material-icons mr-1">thumb_up</i><%= post.upvotes.count %> upvotes
+        </span>
+        <span class="text-muted">
+          <i class="material-icons mr-1">query_builder</i><%= post.created_at %>
+        </span>
+      </div> <!-- end col -->
+    </div> <!-- end row -->
 
 
-    <div class="">
-      <%  @post = Post.find_by_id(post)%>
-      <%= link_to("#{@post.body}", topic_path(@post.topic.id))%><br>
-      <%= post.created_at %><br>
-      <%= post.upvotes.count %>
-
-    </div>
+    <div class="row media">
+      <div class="col media-body"><h5 ><%= link_to("#{post.body}", topic_path(post.topic.id))%></h5></div>
+    </div> <!-- end row -->
+    <hr>
   <% end %>
+  </div><!-- end col-sm-9 -->
+</div><!-- end row -->
