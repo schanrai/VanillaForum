@@ -7,6 +7,8 @@ class ApplicationRecord < ActiveRecord::Base
 
   scope :order_by_updated, -> {order(updated_at: :desc)}
 
+  scope :oldest, -> { order(:created_at).first }
+
   def self.most_upvoted
     joins(:upvotes).group("posts.id").count.sort_by{|k, v| v}.reverse.to_h
   end

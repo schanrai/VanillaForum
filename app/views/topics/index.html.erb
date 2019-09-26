@@ -1,22 +1,55 @@
-<h2>All Threads</h2>
+<div class="row">
+  <div class="col">
+  <h2>All Threads</h2>
+    <hr>
+  </div><!-- end col -->
+</div><!-- end row -->
 
 <div class="row">
-  <% @topics.each do |topic| %>
-  <div class="col-sm-8" >
-    <h5 ><%= link_to("#{topic.title}", topic_path(topic.id), class: "text-dark") %></h5>
+  <div class="col-sm-9">
+    <% @topics.each do |topic| %>
+    <h5 ><%= link_to("#{topic.title}", topic_path(topic.id)) %></h5 >
 
-    <p class="text-muted"><%= topic.posts.last %></p>
-  </div>
 
-  <div class="col-sm-4">
-    <h4 class = "text-muted"><%= topic.posts.count %> posts</h4>
-  </div>
-  <% end %>
-</div>
-<!--Create Topic CTA -->
 
-  <%= link_to_if (!!current_user), "Create Topic", new_topic_path, class: "btn btn-outline-primary  btn-circle" do %>
-  <%= link_to "Join the conversation", @signup_path %>
-  <% end %>
+    <div class ="row">
+      <div class="col">
+        <% posty = topic.posts.oldest%>
+        <%# <% binding.pry %>
+        <strong><%= "posty.user.username" %></strong>
+      </div><!-- end post.username col -->
+    </div><!-- end post.username row -->
 
-<!--add color on post counts-->
+    <!-- stats section -->
+    <div class="row stats-bar">
+      <div class="col mt-0">
+        <span class="text-muted mr-2">
+          <i class="material-icons mr-1">drafts</i><%= topic.posts.count %> posts
+        </span>
+        <span class="text-muted">
+          <i class="material-icons mr-1">query_builder</i><%= "posty.updated_at" %>
+        </span>
+      </div> <!-- end col -->
+    </div> <!-- end row -->
+
+    <div class="row media">
+      <div class="col media-body"><%= "posty.body" %></div>
+    </div> <!-- end row -->
+    <hr>
+    <% end %><!-- iteration ends -->
+  </div><!-- end col-sm-9 -->
+
+  <!-- right sidebar-->
+  <div class="col-sm-3 text-right">
+    <!-- create post link-->
+    <div class="row">
+      <div class="col">
+        <%= link_to_if (!!current_user), "Create New Post", new_topic_path, class: "btn btn-outline-primary btn-block btn-lg btn-circle"  do %>
+          <%= link_to "Join the conversation", @signup_path, class: "btn btn-outline-primary btn-block btn-lg btn-circle" %>
+        <% end %>
+      </div>
+    </div>
+
+  </div> <!-- end col-sm-3 -->
+
+</div><!-- end row -->
