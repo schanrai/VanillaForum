@@ -5,26 +5,24 @@
   </div> <!-- end col -->
 </div> <!-- end row -->
 
-
+<!-- Username & beg of iteration loop -->
 <div class="row">
   <div class="col-sm-9">
     <% @users.each do |user|%>
       <div class="row">
-        <div class="col"><strong><%= user.username %></strong></div>
+        <div class="col">
+          <strong><%= user.username %></strong>
+        </div><!-- end col -->
       </div> <!-- end row -->
 
-
-      <div class="row">
-        <div class="col">
-          <!-- See Posts button -->
-            <div class="mt-2">
-              <% if user.posts.exists? %>
-              <%= link_to "See User's Posts", user_posts_path(user), class: "btn btn-outline-primary btn-circle" %>
-              <% end %>
-            </div>
-        </div> <!-- end col -->
-      </div><!-- end row -->
-
+    <!-- See Posts button -->
+    <div class="row">
+      <div class="col mt-2">
+            <% if user.posts.exists? %>
+            <%= link_to "See User's Posts", user_posts_path(user), class: "btn btn-outline-primary btn-circle" %>
+            <% end %>
+      </div> <!-- end col -->
+    </div><!-- end row -->
 
       <hr>
     <% end %><!-- iteration ends-->
