@@ -1,7 +1,6 @@
 class UpvotesController < ApplicationController
 
   def create
-    
     @user = User.find(session[:user_id])
     @post = Post.find(params[:upvote][:post_id])
     params[:upvote][:user_id] = session[:user_id]
@@ -11,7 +10,9 @@ class UpvotesController < ApplicationController
       redirect_to topic_path(@post.topic)
     else
       @topic = @post.topic
-      render "topics/show"
+      flash[:error] = @upvote.errors.full_messages.join" "
+      #render "topics/show"
+      redirect_to topic_path(@post.topic)
     end
   end
 

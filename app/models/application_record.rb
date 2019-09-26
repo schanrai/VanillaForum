@@ -3,9 +3,9 @@ class ApplicationRecord < ActiveRecord::Base
 
   #make those helpers available in the view
 
-  scope :order_by_created, -> {order(created_at: :desc)}
+  scope :order_by_created, -> {order(created_at: :asc)}
 
-  scope :order_by_updated, -> {order(updated_at: :desc)}
+  scope :order_by_updated, -> {order(updated_at: :asc)}
 
   scope :oldest, -> { order(:created_at).first }
 

@@ -15,8 +15,7 @@
     <div class ="row">
       <div class="col">
         <% posty = topic.posts.oldest%>
-        <%# <%  binding.pry %>
-        <strong><%= "posty.user.username" %></strong>
+        <strong><%= posty.try(:user).try(:username) %></strong>
       </div><!-- end post.username col -->
     </div><!-- end post.username row -->
 
@@ -27,13 +26,13 @@
           <i class="material-icons mr-1">drafts</i><%= topic.posts.count %> posts
         </span>
         <span class="text-muted">
-          <i class="material-icons mr-1">query_builder</i><%= "posty.updated_at" %>
+          <i class="material-icons mr-1">query_builder</i><%= posty.try(:created_at) %>
         </span>
       </div> <!-- end col -->
     </div> <!-- end row -->
 
     <div class="row media">
-      <div class="col media-body"><%= "posty.body" %></div>
+      <div class="col media-body"><%= posty.try(:body) %></div>
     </div> <!-- end row -->
     <hr>
     <% end %><!-- iteration ends -->

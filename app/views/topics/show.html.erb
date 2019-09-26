@@ -16,7 +16,7 @@
 <div class="row">
   <div class="col-sm-9">
 
-  <%@topic.posts.order_by_updated.each do |post| %>
+  <%@topic.posts.order_by_created.each do |post| %>
   <div class="row">
     <div class="col"><strong><%= post.user.username %></strong></div>
   </div> <!-- end row -->
@@ -36,11 +36,11 @@
     <div class="col media-body"><%= post.body %></div>
   </div> <!-- end row -->
 
+  <!-- Upvote button -->
   <div class="row">
     <div class="col">
-      <!-- Upvote button -->
-      <!--if !!current_user && !upvoted_by_current_user(post)-->
-      <% if !!current_user %>
+
+    <% if !!current_user && not_upvoted_by_current_user?(post)%>
         <div class="mt-2">
           <%= form_for :upvote, url: upvotes_path,  method: "post" do |u| %>
             <%= u.hidden_field :post_id, :value => post.id %>
