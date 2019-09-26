@@ -28,3 +28,8 @@
   margin-bottom: 3.6px;
   font-size: 1.1em;
 }
+
+a.btn-lg i {
+  vertical-align: middle;
+  padding-bottom: 3px;
+}

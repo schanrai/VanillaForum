@@ -1,16 +1,49 @@
+<div class="row">
+  <div class="col">
+  <h2><%= @topic.title  %></h2>
+    <hr>
+  </div><!-- end col -->
+</div><!-- end row -->
 
-<h2><%= @topic.title  %></h2>
+<div class="row">
+  <div class="col-sm-9">
+    <%@topic.posts.most_upvoted.each do |post_id, upvotes| %>
+    <%@post = Post.find(post_id) %>
 
-<% @topic.posts.most_upvoted.each do |post_id, upvotes| %>
+    <div class ="row">
+      <div class="col">
+        <strong><%= @post.user.username %></strong>
+      </div><!-- end post.username col -->
+    </div><!-- end post.username row -->
 
-<div>
-  <%  @post = Post.find(post_id) %>
-  <%= @post.user.username %><br>
-  <%= @post.body %><br>
-  <%= @post.updated_at %><br>
-  <%= @post.upvotes.count %>
+    <div class="row stats-bar">
+      <div class="col mt-0">
+        <span class="text-muted mr-2">
+          <i class="material-icons mr-1">thumb_up</i><%= @post.upvotes.count %> UPVOTES
+        </span>
+        <span class="text-muted">
+          <i class="material-icons mr-1">query_builder</i><%= @post.updated_at %>
+        </span>
+      </div> <!-- end col -->
+    </div> <!-- end row -->
 
-<br><br>
 
-</div>
-<% end %>
+    <div class="row media">
+      <div class="col media-body"><%= @post.body %></div>
+    </div> <!-- end row -->
+    <hr>
+    <% end %><!-- iteration ends -->
+  </div><!-- end col-sm-9 -->
+  <div class="col-sm-3 text-right">
+      <!-- Go Back -->
+      <div class="row">
+        <div class="col">
+          <%= link_to topic_path(@topic.id), class: "btn btn-outline-secondary btn-block btn-lg btn-circle" do %>
+            <i class="material-icons">undo</i> Go Back
+          <% end %>
+        </div>
+      </div>
+
+  </div> <!-- end col-sm-3 -->
+
+</div><!-- end row -->
