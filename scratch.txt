@@ -32,3 +32,10 @@ edit_user GET    /users/:id/edit(.:format)                                      
          DELETE /users/:id(.:format)                                                                     users#destroy
  upvotes POST   /upvotes(.:format)                                                                       upvotes#create
 new_upvote GET    /upvotes/new(.:format)                                                                   upvotes#new
+
+
+def upvoted?
+  binding.pry
+  @users = self.upvotes.user_id
+  @users.exists?(current_user(:id))
+end

@@ -13,3 +13,18 @@
  *= require_tree .
  *= require_self
  */
+
+.stats-bar {
+  display: inline-flex;
+  align-items: center;
+  vertical-align: middle;
+  line-height: 24px;
+  font-family: 'Roboto', sans-serif;
+  font-size: 0.8em;
+}
+
+.stats-bar i {
+  vertical-align: middle;
+  margin-bottom: 3.6px;
+  font-size: 1.1em;
+}

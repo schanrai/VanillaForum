@@ -35,8 +35,8 @@ class TopicsController < ApplicationController
 
 
   def most_upvoted
-
   end
+
 
 
   private
@@ -49,5 +49,7 @@ class TopicsController < ApplicationController
     def topic_params
       params.require(:topic).permit(:title, posts_attributes: [:body])
     end
+
+
 
 end

@@ -66,6 +66,7 @@ class PostsController < ApplicationController
 
 
 
+
 private
 
   def post_params
@@ -79,5 +80,7 @@ private
   def set_post
     @post = Post.find_by(id: params[:id])
   end
+
+
 
 end

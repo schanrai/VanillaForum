@@ -1,5 +1,7 @@
 {
   "name": "VanillaForum",
   "private": true,
-  "dependencies": {}
+  "dependencies": {
+    "@primer/octicons": "^9.1.1"
+  }
 }

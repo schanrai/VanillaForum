@@ -2,6 +2,7 @@ class ApplicationController < ActionController::Base
 
 helper_method :current_user
 
+
     def logged_out?
       !session[:user_id]
     end
@@ -12,6 +13,7 @@ helper_method :current_user
         redirect_to login_path
       end
     end
+
 
 
     def current_user
