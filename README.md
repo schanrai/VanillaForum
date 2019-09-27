@@ -18,7 +18,7 @@ To start up the Rails server, which renders your app on the web therefore allowi
 
 ## Usage
 
-Watch a demo of it [here.](https://www.youtube.com/watch?v=5P-135Uf-mE&feature=youtu.be)
+Watch a demo of it [here.](https://youtu.be/kd_frXRarXU)
 
 
 ## Built With
