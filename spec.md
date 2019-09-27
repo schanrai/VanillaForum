@@ -11,7 +11,7 @@ Specs:
 - [x] Include a class level ActiveRecord scope method (model object & class method name and URL to see the working feature e.g. User.most_recipes URL: /users/most_recipes)
 - [x] Include signup (how e.g. Devise)
 - [x] Include login (how e.g. Devise)
-- [ ] Include logout (how e.g. Devise)
+- [x] Include logout (how e.g. Devise)
 - [x] Include third party signup/login (how e.g. Devise/OmniAuth)
 - [x] Include nested resource show or index (URL e.g. users/2/recipes)
 user/3/posts -> the only way you can show index of posts is showing all posts that belong to a user
@@ -20,7 +20,7 @@ topic/4/posts/new -> you must create post within a topic, leverages the new acti
 - [x] Include form display of validation errors (form URL e.g. /recipes/new)
 
 Confirm:
-- [ ] The application is pretty DRY
-- [ ] Limited logic in controllers
-- [ ] Views use helper methods if appropriate
-- [ ] Views use partials if appropriate
+- [x] The application is pretty DRY
+- [x] Limited logic in controllers
+- [x] Views use helper methods if appropriate
+- [x] Views use partials if appropriate

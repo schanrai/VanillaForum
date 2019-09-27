@@ -48,7 +48,9 @@
         <p><%= link_to("#{@post.body}", topic_path(@post.topic_id))%> (<%="#{@post.upvotes.count}"%> upvotes) </p>
         <% end %>
         </div>
-      <%= link_to "Create new post", new_topic_path, class: "btn btn-outline-danger btn-circle mt-2" %>
+        <% if !!current_user %>
+          <%= link_to "Create new post", new_topic_path, class: "btn btn-outline-danger btn-circle mt-2" %>
+        <% end %>
     </div>
 
   </div>
