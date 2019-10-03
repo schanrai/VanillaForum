@@ -8,4 +8,9 @@ class Topic < ApplicationRecord
   validates_associated :posts
 
   accepts_nested_attributes_for :posts
+
+
+
+
+
 end
