@@ -32,6 +32,10 @@ class UsersController < ApplicationController
     @users = User.all
   end
 
+  def most_active
+    @users = User.all
+  end
+
 
   private
 

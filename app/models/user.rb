@@ -4,6 +4,7 @@ class User < ApplicationRecord
   has_many :topics, through: :posts
   has_many :upvotes
 
+  #take our validates :password because this already provided by has_secure_password
   validates :username, :email, :password, presence: true
   validates :email, uniqueness: true
   validates :username, length: { maximum: 25,

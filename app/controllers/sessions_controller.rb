@@ -36,8 +36,10 @@ class SessionsController < ApplicationController
   #omniauth login
     def fbcreate
       @user = User.find_or_create_by(uid: auth['uid']) do |u|
+        #above allows us to only find stuff based on the uid but then we set the other attributes below on the u object
         u.username = auth['info']['name']
         u.email = auth['info']['email']
+        #user doesn't care about their password, they are logging in with omniauth to make it one step 
         u.password = SecureRandom.hex
       end
         session[:user_id] = @user.id

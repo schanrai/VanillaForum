@@ -19,7 +19,8 @@ class TopicsController < ApplicationController
 
   def create
     @topic = current_user.topics.new(topic_params)
-    @topic.posts.first.user_id = current_user.id
+    @topic.posts.first.user_id = current_user.id  
+    #have to set user_id because of the belongs_to user relationship
     flash[:error] = "Topic creation failed. Try again"
       if @topic.save
         flash[:error] = "Topic created sucessfully"

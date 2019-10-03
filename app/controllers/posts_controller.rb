@@ -44,6 +44,7 @@ class PostsController < ApplicationController
 
   def edit
     #@post = Post.find_by(id: params[:id])
+    #check that post user_id  == current_user_id
   end
 
 
