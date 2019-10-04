@@ -1,7 +1,7 @@
 class ApplicationRecord < ActiveRecord::Base
   self.abstract_class = true
 
-  
+
 
   scope :order_by_created, -> {order(created_at: :asc)}
 
@@ -14,6 +14,8 @@ class ApplicationRecord < ActiveRecord::Base
   def self.most_upvoted
     joins(:upvotes).group("posts.id").count.sort_by{|k, v| v}.reverse.to_h
   end
+
+
 
 
 end

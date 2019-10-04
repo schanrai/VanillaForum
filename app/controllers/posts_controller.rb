@@ -43,13 +43,11 @@ class PostsController < ApplicationController
 
 
   def edit
-    #@post = Post.find_by(id: params[:id])
     #check that post user_id  == current_user_id
   end
 
 
   def update
-    #@post = Post.find_by(id: params[:id])
     @post.topic_id = params[:topic_id]
     if @post.update(post_params)
       redirect_to topic_path(@post.topic_id)

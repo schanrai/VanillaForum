@@ -33,7 +33,7 @@ class UsersController < ApplicationController
   end
 
   def most_active
-    @users = User.all
+    @user = User.most_active
   end
 
 

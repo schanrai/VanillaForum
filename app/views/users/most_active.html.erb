@@ -1,1 +1,29 @@
-<h1>Users  </h1>
+<div class="row">
+  <div class="col">
+  <h2>Most Active User</h2>
+    <hr>
+  </div><!-- end col -->
+</div><!-- end row -->
+
+
+
+<div class ="row">
+  <div class="col-sm-9">
+    <h5>Username: <span class="font-weight-light"><%= @user.username %></span></h5>
+    <div class="col p-0"><strong><%= @user.posts.count %> posts</strong></div>
+  </div><!-- end col -->
+
+
+
+<!-- right sidebar-->
+  <div class="col-sm-3 text-right">
+    <!-- create post link-->
+    <div class="row">
+      <div class="col">
+        <% if @user.posts.exists? %>
+        <%= link_to "View #{@user.username} posts", user_posts_path(@user), class: "btn btn-outline-primary btn-block btn-lg btn-circle" %>
+        <% end %>
+      </div>
+    </div>
+  </div> <!-- end col-sm-3 -->
+</div><!-- end row -->
